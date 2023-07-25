@@ -7,18 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F3ABCC232A6DAB7C00C30A7C /* ScaniusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC222A6DAB7C00C30A7C /* ScaniusApp.swift */; };
-		F3ABCC252A6DAB7C00C30A7C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC242A6DAB7C00C30A7C /* ContentView.swift */; };
+		F3ABCC232A6DAB7C00C30A7C /* Scanius App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */; };
 		F3ABCC272A6DAB7E00C30A7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */; };
-		F3ABCC2A2A6DAB7E00C30A7C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3ABCC292A6DAB7E00C30A7C /* Preview Assets.xcassets */; };
+		F3ABCC332A6DABB800C30A7C /* RoomPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC312A6DABB800C30A7C /* RoomPlanController.swift */; };
+		F3ABCC372A6DAED900C30A7C /* RoomPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC362A6DAED900C30A7C /* RoomPlanView.swift */; };
+		F3ABCC3A2A6DB1A800C30A7C /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3ABCC392A6DB1A800C30A7C /* ScrechKit */; };
+		F3ABCC3C2A6DBEC800C30A7C /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */; };
+		F3ABCC3E2A6DC5E400C30A7C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC3D2A6DC5E400C30A7C /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F3ABCC1F2A6DAB7C00C30A7C /* Scanius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scanius.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3ABCC222A6DAB7C00C30A7C /* ScaniusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaniusApp.swift; sourceTree = "<group>"; };
-		F3ABCC242A6DAB7C00C30A7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scanius App.swift"; sourceTree = "<group>"; };
 		F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F3ABCC292A6DAB7E00C30A7C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F3ABCC312A6DABB800C30A7C /* RoomPlanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPlanController.swift; sourceTree = "<group>"; };
+		F3ABCC362A6DAED900C30A7C /* RoomPlanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPlanView.swift; sourceTree = "<group>"; };
+		F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
+		F3ABCC3D2A6DC5E400C30A7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3ABCC3A2A6DB1A800C30A7C /* ScrechKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,20 +57,14 @@
 		F3ABCC212A6DAB7C00C30A7C /* Scanius */ = {
 			isa = PBXGroup;
 			children = (
-				F3ABCC222A6DAB7C00C30A7C /* ScaniusApp.swift */,
-				F3ABCC242A6DAB7C00C30A7C /* ContentView.swift */,
+				F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */,
+				F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */,
+				F3ABCC362A6DAED900C30A7C /* RoomPlanView.swift */,
+				F3ABCC3D2A6DC5E400C30A7C /* ContentView.swift */,
+				F3ABCC312A6DABB800C30A7C /* RoomPlanController.swift */,
 				F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */,
-				F3ABCC282A6DAB7E00C30A7C /* Preview Content */,
 			);
 			path = Scanius;
-			sourceTree = "<group>";
-		};
-		F3ABCC282A6DAB7E00C30A7C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				F3ABCC292A6DAB7E00C30A7C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +83,9 @@
 			dependencies = (
 			);
 			name = Scanius;
+			packageProductDependencies = (
+				F3ABCC392A6DB1A800C30A7C /* ScrechKit */,
+			);
 			productName = Scanius;
 			productReference = F3ABCC1F2A6DAB7C00C30A7C /* Scanius.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +114,9 @@
 				Base,
 			);
 			mainGroup = F3ABCC162A6DAB7C00C30A7C;
+			packageReferences = (
+				F3ABCC382A6DB1A800C30A7C /* XCRemoteSwiftPackageReference "ScrechKit" */,
+			);
 			productRefGroup = F3ABCC202A6DAB7C00C30A7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,7 +131,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3ABCC2A2A6DAB7E00C30A7C /* Preview Assets.xcassets in Resources */,
 				F3ABCC272A6DAB7E00C30A7C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +142,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3ABCC252A6DAB7C00C30A7C /* ContentView.swift in Sources */,
-				F3ABCC232A6DAB7C00C30A7C /* ScaniusApp.swift in Sources */,
+				F3ABCC232A6DAB7C00C30A7C /* Scanius App.swift in Sources */,
+				F3ABCC3E2A6DC5E400C30A7C /* ContentView.swift in Sources */,
+				F3ABCC332A6DABB800C30A7C /* RoomPlanController.swift in Sources */,
+				F3ABCC3C2A6DBEC800C30A7C /* App Container.swift in Sources */,
+				F3ABCC372A6DAED900C30A7C /* RoomPlanView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,23 +278,28 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Scanius/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Scanius;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "RoomPlan API";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.topscrech.Scanius;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -299,23 +312,28 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Scanius/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Scanius;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "RoomPlan API";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.topscrech.Scanius;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -344,6 +362,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3ABCC382A6DB1A800C30A7C /* XCRemoteSwiftPackageReference "ScrechKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TopScrech/ScrechKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3ABCC392A6DB1A800C30A7C /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3ABCC382A6DB1A800C30A7C /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3ABCC172A6DAB7C00C30A7C /* Project object */;
 }

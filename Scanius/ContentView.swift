@@ -10,12 +10,28 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Image(systemName: "camera.metering.matrix")
+                .title()
+                .foregroundColor(.accentColor)
+            
+            Text("Roomscanner")
+                .title()
+            
+            ProgressView()
+            
+            Spacer().frame(height: 40)
+            
+            Text("Scan the room by pointing the camera at all surfaces. Model export supports usdz and obj format.")
+            
+            Spacer().frame(height: 40)
+            
+            NavigationLink("Start Scan") {
+                ScanningView()
+            }
+            .title2()
+            .clipShape(.capsule)
+            .buttonStyle(.borderedProminent)
         }
-        .padding()
     }
 }
 
