@@ -42,7 +42,7 @@ struct ScanningView: View {
             .padding()
         }
         .ignoresSafeArea()
-        .onAppear {
+        .task {
             captureController.showExportButton = false
             captureController.startSession()
         }
@@ -61,8 +61,4 @@ struct ScanningView: View {
             }
         }
     }
-}
-
-#Preview {
-    ScanningView()
 }

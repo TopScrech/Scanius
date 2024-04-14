@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F306C5F12A708DF900DB97F0 /* Scan List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306C5F02A708DF900DB97F0 /* Scan List.swift */; };
+		F37532042A7126C20062B74E /* Scan Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37532032A7126C20062B74E /* Scan Card.swift */; };
 		F3ABCC232A6DAB7C00C30A7C /* Scanius App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */; };
 		F3ABCC272A6DAB7E00C30A7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */; };
-		F3ABCC332A6DABB800C30A7C /* RoomPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC312A6DABB800C30A7C /* RoomPlanController.swift */; };
-		F3ABCC372A6DAED900C30A7C /* RoomPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC362A6DAED900C30A7C /* RoomPlanView.swift */; };
+		F3ABCC332A6DABB800C30A7C /* Room Plan Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC312A6DABB800C30A7C /* Room Plan Controller.swift */; };
+		F3ABCC372A6DAED900C30A7C /* Room Plan View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC362A6DAED900C30A7C /* Room Plan View.swift */; };
 		F3ABCC3A2A6DB1A800C30A7C /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3ABCC392A6DB1A800C30A7C /* ScrechKit */; };
 		F3ABCC3C2A6DBEC800C30A7C /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */; };
-		F3ABCC3E2A6DC5E400C30A7C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC3D2A6DC5E400C30A7C /* ContentView.swift */; };
+		F3C43C542A7133C80053D567 /* example.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3C43C532A7133C80053D567 /* example.usdz */; };
+		F3E2B8322A709DB300504F1D /* Quick Look.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E2B8312A709DB300504F1D /* Quick Look.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F306C5F02A708DF900DB97F0 /* Scan List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scan List.swift"; sourceTree = "<group>"; };
+		F35B85062A71523A00ED639B /* Scanius.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scanius.entitlements; sourceTree = "<group>"; };
+		F35B85072A71573800ED639B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F37532032A7126C20062B74E /* Scan Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scan Card.swift"; sourceTree = "<group>"; };
 		F3ABCC1F2A6DAB7C00C30A7C /* Scanius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scanius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scanius App.swift"; sourceTree = "<group>"; };
 		F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F3ABCC312A6DABB800C30A7C /* RoomPlanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPlanController.swift; sourceTree = "<group>"; };
-		F3ABCC362A6DAED900C30A7C /* RoomPlanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPlanView.swift; sourceTree = "<group>"; };
+		F3ABCC312A6DABB800C30A7C /* Room Plan Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Room Plan Controller.swift"; sourceTree = "<group>"; };
+		F3ABCC362A6DAED900C30A7C /* Room Plan View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Room Plan View.swift"; sourceTree = "<group>"; };
 		F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
-		F3ABCC3D2A6DC5E400C30A7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F3C43C532A7133C80053D567 /* example.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = example.usdz; sourceTree = "<group>"; };
+		F3E2B8312A709DB300504F1D /* Quick Look.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quick Look.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +65,25 @@
 		F3ABCC212A6DAB7C00C30A7C /* Scanius */ = {
 			isa = PBXGroup;
 			children = (
+				F35B85072A71573800ED639B /* Info.plist */,
+				F35B85062A71523A00ED639B /* Scanius.entitlements */,
 				F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */,
 				F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */,
-				F3ABCC362A6DAED900C30A7C /* RoomPlanView.swift */,
-				F3ABCC3D2A6DC5E400C30A7C /* ContentView.swift */,
-				F3ABCC312A6DABB800C30A7C /* RoomPlanController.swift */,
+				F3C852592A7068DD00982350 /* Scanius */,
 				F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */,
+			);
+			path = Scanius;
+			sourceTree = "<group>";
+		};
+		F3C852592A7068DD00982350 /* Scanius */ = {
+			isa = PBXGroup;
+			children = (
+				F3ABCC312A6DABB800C30A7C /* Room Plan Controller.swift */,
+				F3E2B8312A709DB300504F1D /* Quick Look.swift */,
+				F3ABCC362A6DAED900C30A7C /* Room Plan View.swift */,
+				F306C5F02A708DF900DB97F0 /* Scan List.swift */,
+				F37532032A7126C20062B74E /* Scan Card.swift */,
+				F3C43C532A7133C80053D567 /* example.usdz */,
 			);
 			path = Scanius;
 			sourceTree = "<group>";
@@ -131,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C43C542A7133C80053D567 /* example.usdz in Resources */,
 				F3ABCC272A6DAB7E00C30A7C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,11 +164,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37532042A7126C20062B74E /* Scan Card.swift in Sources */,
 				F3ABCC232A6DAB7C00C30A7C /* Scanius App.swift in Sources */,
-				F3ABCC3E2A6DC5E400C30A7C /* ContentView.swift in Sources */,
-				F3ABCC332A6DABB800C30A7C /* RoomPlanController.swift in Sources */,
+				F3ABCC332A6DABB800C30A7C /* Room Plan Controller.swift in Sources */,
+				F306C5F12A708DF900DB97F0 /* Scan List.swift in Sources */,
 				F3ABCC3C2A6DBEC800C30A7C /* App Container.swift in Sources */,
-				F3ABCC372A6DAED900C30A7C /* RoomPlanView.swift in Sources */,
+				F3E2B8322A709DB300504F1D /* Quick Look.swift in Sources */,
+				F3ABCC372A6DAED900C30A7C /* Room Plan View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,12 +301,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Scanius/Scanius.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Scanius/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scanius;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSCameraUsageDescription = "RoomPlan API";
@@ -300,6 +326,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -311,12 +338,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Scanius/Scanius.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Scanius/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scanius;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSCameraUsageDescription = "RoomPlan API";
@@ -334,6 +363,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
