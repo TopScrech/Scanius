@@ -25,7 +25,7 @@ struct ScanList: View {
                 }
             }
         }
-        .onAppear {
+        .task {
             files = fetchFiles()
         }
     }

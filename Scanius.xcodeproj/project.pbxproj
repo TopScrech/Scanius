@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,18 +30,16 @@
 		F3ABCC312A6DABB800C30A7C /* Room Plan Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Room Plan Controller.swift"; sourceTree = "<group>"; };
 		F3ABCC362A6DAED900C30A7C /* Room Plan View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Room Plan View.swift"; sourceTree = "<group>"; };
 		F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
-		F3C43C532A7133C80053D567 /* example.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = example.usdz; sourceTree = "<group>"; };
+		F3C43C532A7133C80053D567 /* example.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = example.usdz; sourceTree = "<group>"; };
 		F3E2B8312A709DB300504F1D /* Quick Look.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quick Look.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F3ABCC1C2A6DAB7C00C30A7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3ABCC3A2A6DB1A800C30A7C /* ScrechKit in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -67,10 +65,11 @@
 			children = (
 				F35B85072A71573800ED639B /* Info.plist */,
 				F35B85062A71523A00ED639B /* Scanius.entitlements */,
+				F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */,
+				F3C43C532A7133C80053D567 /* example.usdz */,
 				F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */,
 				F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */,
 				F3C852592A7068DD00982350 /* Scanius */,
-				F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */,
 			);
 			path = Scanius;
 			sourceTree = "<group>";
@@ -83,7 +82,6 @@
 				F3ABCC362A6DAED900C30A7C /* Room Plan View.swift */,
 				F306C5F02A708DF900DB97F0 /* Scan List.swift */,
 				F37532032A7126C20062B74E /* Scan Card.swift */,
-				F3C43C532A7133C80053D567 /* example.usdz */,
 			);
 			path = Scanius;
 			sourceTree = "<group>";
@@ -101,8 +99,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = Scanius;
 			packageProductDependencies = (
 				F3ABCC392A6DB1A800C30A7C /* ScrechKit */,
@@ -119,7 +115,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					F3ABCC1E2A6DAB7C00C30A7C = {
 						CreatedOnToolsVersion = 15.0;
@@ -127,7 +123,6 @@
 				};
 			};
 			buildConfigurationList = F3ABCC1A2A6DAB7C00C30A7C /* Build configuration list for PBXProject "Scanius" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -138,6 +133,7 @@
 			packageReferences = (
 				F3ABCC382A6DB1A800C30A7C /* XCRemoteSwiftPackageReference "ScrechKit" */,
 			);
+			preferredProjectObjectVersion = 90;
 			productRefGroup = F3ABCC202A6DAB7C00C30A7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -150,19 +146,16 @@
 /* Begin PBXResourcesBuildPhase section */
 		F3ABCC1D2A6DAB7C00C30A7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3C43C542A7133C80053D567 /* example.usdz in Resources */,
 				F3ABCC272A6DAB7E00C30A7C /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F3ABCC1B2A6DAB7C00C30A7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F37532042A7126C20062B74E /* Scan Card.swift in Sources */,
 				F3ABCC232A6DAB7C00C30A7C /* Scanius App.swift in Sources */,
@@ -172,12 +165,11 @@
 				F3E2B8322A709DB300504F1D /* Quick Look.swift in Sources */,
 				F3ABCC372A6DAED900C30A7C /* Room Plan View.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F3ABCC2B2A6DAB7E00C30A7C /* Debug */ = {
+		F3ABCC2B2A6DAB7E00C30A7C /* Debug configuration for PBXProject "Scanius" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -212,6 +204,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -240,7 +233,7 @@
 			};
 			name = Debug;
 		};
-		F3ABCC2C2A6DAB7E00C30A7C /* Release */ = {
+		F3ABCC2C2A6DAB7E00C30A7C /* Release configuration for PBXProject "Scanius" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -275,6 +268,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -296,7 +290,7 @@
 			};
 			name = Release;
 		};
-		F3ABCC2E2A6DAB7E00C30A7C /* Debug */ = {
+		F3ABCC2E2A6DAB7E00C30A7C /* Debug configuration for PBXNativeTarget "Scanius" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -305,7 +299,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scanius/Info.plist;
@@ -333,7 +326,7 @@
 			};
 			name = Debug;
 		};
-		F3ABCC2F2A6DAB7E00C30A7C /* Release */ = {
+		F3ABCC2F2A6DAB7E00C30A7C /* Release configuration for PBXNativeTarget "Scanius" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -342,7 +335,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scanius/Info.plist;
@@ -376,19 +368,17 @@
 		F3ABCC1A2A6DAB7C00C30A7C /* Build configuration list for PBXProject "Scanius" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F3ABCC2B2A6DAB7E00C30A7C /* Debug */,
-				F3ABCC2C2A6DAB7E00C30A7C /* Release */,
+				F3ABCC2B2A6DAB7E00C30A7C /* Debug configuration for PBXProject "Scanius" */,
+				F3ABCC2C2A6DAB7E00C30A7C /* Release configuration for PBXProject "Scanius" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F3ABCC2D2A6DAB7E00C30A7C /* Build configuration list for PBXNativeTarget "Scanius" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F3ABCC2E2A6DAB7E00C30A7C /* Debug */,
-				F3ABCC2F2A6DAB7E00C30A7C /* Release */,
+				F3ABCC2E2A6DAB7E00C30A7C /* Debug configuration for PBXNativeTarget "Scanius" */,
+				F3ABCC2F2A6DAB7E00C30A7C /* Release configuration for PBXNativeTarget "Scanius" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
