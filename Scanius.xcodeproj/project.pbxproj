@@ -63,12 +63,12 @@
 		F3ABCC212A6DAB7C00C30A7C /* Scanius */ = {
 			isa = PBXGroup;
 			children = (
+				F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */,
+				F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */,
 				F35B85072A71573800ED639B /* Info.plist */,
 				F35B85062A71523A00ED639B /* Scanius.entitlements */,
 				F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */,
 				F3C43C532A7133C80053D567 /* example.usdz */,
-				F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */,
-				F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */,
 				F3C852592A7068DD00982350 /* Scanius */,
 			);
 			path = Scanius;
@@ -115,7 +115,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					F3ABCC1E2A6DAB7C00C30A7C = {
 						CreatedOnToolsVersion = 15.0;
@@ -228,6 +228,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -285,6 +286,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

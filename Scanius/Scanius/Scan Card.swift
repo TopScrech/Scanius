@@ -18,7 +18,7 @@ struct ScanCard: View {
                 
                 Text("Size: \(fileSize(file) ?? "-")")
                     .footnote()
-                    .foregroundStyle(.secondary)
+                    .secondary()
             }
         }
     }

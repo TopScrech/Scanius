@@ -34,9 +34,9 @@ struct ScanList: View {
         for index in offsets {
             do {
                 try FileManager.default.removeItem(at: files[index])
-                print("File successfully deleted.")
+                print("File successfully deleted")
             } catch {
-                print("Error deleting file: \(error)")
+                print("Error deleting file:", error)
             }
         }
     }
@@ -62,7 +62,7 @@ struct ScanList: View {
             
             return urls
         } catch {
-            print("Error reading files from iCloud Documents directory: \(error)")
+            print("Error reading files from iCloud Documents directory:", error)
             return []
         }
     }
@@ -81,7 +81,7 @@ struct ScanList: View {
     //
     //            return urls
     //        } catch {
-    //            print("Error reading files from iCloud Documents directory: \(error)")
+    //            print("Error reading files from iCloud Documents directory:", error)
     //            return []
     //        }
     //    }
@@ -96,9 +96,10 @@ struct ScanList: View {
     //                at: documentsDirectory,
     //                includingPropertiesForKeys: nil
     //            )
+    //
     //            return urls
     //        } catch {
-    //            print("Error reading files from documents directory.")
+    //            print("Error reading files from documents directory")
     //            return nil
     //        }
     //    }
