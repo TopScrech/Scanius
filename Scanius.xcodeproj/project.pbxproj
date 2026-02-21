@@ -7,32 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F306C5F12A708DF900DB97F0 /* Scan List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306C5F02A708DF900DB97F0 /* Scan List.swift */; };
-		F37532042A7126C20062B74E /* Scan Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37532032A7126C20062B74E /* Scan Card.swift */; };
-		F3ABCC232A6DAB7C00C30A7C /* Scanius App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */; };
-		F3ABCC272A6DAB7E00C30A7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */; };
-		F3ABCC332A6DABB800C30A7C /* Room Plan Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC312A6DABB800C30A7C /* Room Plan Controller.swift */; };
-		F3ABCC372A6DAED900C30A7C /* Room Plan View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC362A6DAED900C30A7C /* Room Plan View.swift */; };
 		F3ABCC3A2A6DB1A800C30A7C /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3ABCC392A6DB1A800C30A7C /* ScrechKit */; };
-		F3ABCC3C2A6DBEC800C30A7C /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */; };
-		F3C43C542A7133C80053D567 /* example.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F3C43C532A7133C80053D567 /* example.usdz */; };
-		F3E2B8322A709DB300504F1D /* Quick Look.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E2B8312A709DB300504F1D /* Quick Look.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F306C5F02A708DF900DB97F0 /* Scan List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scan List.swift"; sourceTree = "<group>"; };
-		F35B85062A71523A00ED639B /* Scanius.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scanius.entitlements; sourceTree = "<group>"; };
-		F35B85072A71573800ED639B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		F37532032A7126C20062B74E /* Scan Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scan Card.swift"; sourceTree = "<group>"; };
 		F3ABCC1F2A6DAB7C00C30A7C /* Scanius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scanius.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scanius App.swift"; sourceTree = "<group>"; };
-		F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F3ABCC312A6DABB800C30A7C /* Room Plan Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Room Plan Controller.swift"; sourceTree = "<group>"; };
-		F3ABCC362A6DAED900C30A7C /* Room Plan View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Room Plan View.swift"; sourceTree = "<group>"; };
-		F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
-		F3C43C532A7133C80053D567 /* example.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = example.usdz; sourceTree = "<group>"; };
-		F3E2B8312A709DB300504F1D /* Quick Look.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quick Look.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F3B1B1B22F49BD3200AA5AD3 /* Exceptions for "Scanius" folder in "Scanius" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F3ABCC1E2A6DAB7C00C30A7C /* Scanius */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F3B1B1A72F49BD3200AA5AD3 /* Scanius */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F3B1B1B22F49BD3200AA5AD3 /* Exceptions for "Scanius" folder in "Scanius" target */,
+			);
+			path = Scanius;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F3ABCC1C2A6DAB7C00C30A7C /* Frameworks */ = {
@@ -47,7 +48,7 @@
 		F3ABCC162A6DAB7C00C30A7C = {
 			isa = PBXGroup;
 			children = (
-				F3ABCC212A6DAB7C00C30A7C /* Scanius */,
+				F3B1B1A72F49BD3200AA5AD3 /* Scanius */,
 				F3ABCC202A6DAB7C00C30A7C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,32 +59,6 @@
 				F3ABCC1F2A6DAB7C00C30A7C /* Scanius.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		F3ABCC212A6DAB7C00C30A7C /* Scanius */ = {
-			isa = PBXGroup;
-			children = (
-				F3ABCC222A6DAB7C00C30A7C /* Scanius App.swift */,
-				F3ABCC3B2A6DBEC800C30A7C /* App Container.swift */,
-				F35B85072A71573800ED639B /* Info.plist */,
-				F35B85062A71523A00ED639B /* Scanius.entitlements */,
-				F3ABCC262A6DAB7E00C30A7C /* Assets.xcassets */,
-				F3C43C532A7133C80053D567 /* example.usdz */,
-				F3C852592A7068DD00982350 /* Scanius */,
-			);
-			path = Scanius;
-			sourceTree = "<group>";
-		};
-		F3C852592A7068DD00982350 /* Scanius */ = {
-			isa = PBXGroup;
-			children = (
-				F3ABCC312A6DABB800C30A7C /* Room Plan Controller.swift */,
-				F3E2B8312A709DB300504F1D /* Quick Look.swift */,
-				F3ABCC362A6DAED900C30A7C /* Room Plan View.swift */,
-				F306C5F02A708DF900DB97F0 /* Scan List.swift */,
-				F37532032A7126C20062B74E /* Scan Card.swift */,
-			);
-			path = Scanius;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +73,9 @@
 				F3ABCC1D2A6DAB7C00C30A7C /* Resources */,
 			);
 			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				F3B1B1A72F49BD3200AA5AD3 /* Scanius */,
 			);
 			name = Scanius;
 			packageProductDependencies = (
@@ -147,8 +125,6 @@
 		F3ABCC1D2A6DAB7C00C30A7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				F3C43C542A7133C80053D567 /* example.usdz in Resources */,
-				F3ABCC272A6DAB7E00C30A7C /* Assets.xcassets in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
@@ -157,13 +133,6 @@
 		F3ABCC1B2A6DAB7C00C30A7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				F37532042A7126C20062B74E /* Scan Card.swift in Sources */,
-				F3ABCC232A6DAB7C00C30A7C /* Scanius App.swift in Sources */,
-				F3ABCC332A6DABB800C30A7C /* Room Plan Controller.swift in Sources */,
-				F306C5F12A708DF900DB97F0 /* Scan List.swift in Sources */,
-				F3ABCC3C2A6DBEC800C30A7C /* App Container.swift in Sources */,
-				F3E2B8322A709DB300504F1D /* Quick Look.swift in Sources */,
-				F3ABCC372A6DAED900C30A7C /* Room Plan View.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
