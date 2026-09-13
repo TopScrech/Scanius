@@ -14,18 +14,30 @@ struct ObjectCaptureControlsView: View {
                 switch session.state {
                 case .initializing:
                     ProgressView("Starting Camera")
+                    
                 case .ready:
-                    Text("Center the object in the frame")
-                    Button("Detect Object", systemImage: "viewfinder", action: vm.detectObject)
+                    if vm.mode == .area {
+                        Text("Aim at the space you want to capture")
+                        Text("Smaller areas preserve more detail")
+                            .secondary()
+                        Button("Start Area Capture", systemImage: "camera", action: vm.startCapturing)
+                    } else {
+                        Text("Center the object in the frame")
+                        Button("Detect Object", systemImage: "viewfinder", action: vm.detectObject)
+                    }
+                    
                 case .detecting:
                     Text("Adjust the box to fit your object, then start capturing")
                     Button("Start Capture", systemImage: "camera", action: vm.startCapturing)
+                
                 case .capturing:
-                    Text("Move slowly around the object to capture every side")
+                    Text(vm.mode == .area
+                         ? "Move slowly across surfaces with overlapping views from different heights"
+                         : "Move slowly around the object to capture every side")
                     Text("\(session.numberOfShotsTaken) photos captured")
-                        .foregroundStyle(.secondary)
+                        .secondary()
                     
-                    if session.userCompletedScanPass {
+                    if vm.mode == .object && session.userCompletedScanPass {
                         Button("Capture Another Angle", systemImage: "arrow.triangle.2.circlepath", action: vm.nextPass)
                     }
                     
@@ -33,8 +45,10 @@ struct ObjectCaptureControlsView: View {
                         .disabled(session.numberOfShotsTaken == 0)
                 case .finishing, .completed:
                     ProgressView("Finishing Capture")
+                    
                 case .failed:
                     EmptyView()
+                    
                 @unknown default:
                     EmptyView()
                 }

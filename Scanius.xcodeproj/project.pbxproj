@@ -13,6 +13,7 @@
 /* Begin PBXFileReference section */
 		F3ABCC1F2A6DAB7C00C30A7C /* Scanius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scanius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3ED4B4630573FFE00B6F884 /* AGENTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS.md; sourceTree = "<group>"; };
+		F3ED5667305768EF00B6F884 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -50,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				F3ED4B4630573FFE00B6F884 /* AGENTS.md */,
+				F3ED5667305768EF00B6F884 /* README.md */,
 				F3B1B1A72F49BD3200AA5AD3 /* Scanius */,
 				F3ABCC202A6DAB7C00C30A7C /* Products */,
 			);

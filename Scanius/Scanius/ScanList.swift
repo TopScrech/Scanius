@@ -22,6 +22,8 @@ struct ScanList: View {
                 Menu("New Scan", systemImage: "plus") {
                     NavigationLink("Room Plan", value: ScanType.roomPlan)
                     NavigationLink("Object Capture", value: ScanType.objectCapture)
+                    NavigationLink("Area Capture", value: ScanType.areaCapture)
+                    NavigationLink("LiDAR Mesh", value: ScanType.sceneReconstruction)
                 }
             }
         }
@@ -34,6 +36,18 @@ struct ScanList: View {
                 ScanningView()
             case .objectCapture:
                 ObjectScanningView()
+            case .areaCapture:
+                if #available(iOS 18, *) {
+                    ObjectScanningView(mode: .area)
+                } else {
+                    ContentUnavailableView("Area Capture Requires iOS 18", systemImage: "viewfinder")
+                }
+            case .sceneReconstruction:
+                if #available(iOS 18, *) {
+                    SceneScanningView()
+                } else {
+                    ContentUnavailableView("LiDAR Mesh Requires iOS 18", systemImage: "cube.transparent")
+                }
             }
         }
     }

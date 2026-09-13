@@ -4,6 +4,12 @@ import RealityKit
 @MainActor
 @Observable
 final class ObjectCaptureVM {
+    let mode: ObjectCaptureMode
+
+    init(mode: ObjectCaptureMode = .object) {
+        self.mode = mode
+    }
+
     private(set) var session: ObjectCaptureSession?
     private(set) var isProcessing = false
     private(set) var progress = 0.0
@@ -22,12 +28,13 @@ final class ObjectCaptureVM {
         guard isSupported, session == nil, !stopped else { return }
         
         let workspace = URL.temporaryDirectory.appending(path: UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: workspace) }
         let images = workspace.appending(path: "Images")
         let checkpoints = workspace.appending(path: "Checkpoints")
         
         do {
             guard let documents = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appending(path: "Documents") else {
-                errorMessage = "Sign in to iCloud to save object captures"
+                errorMessage = "Sign in to iCloud to save captures"
                 return
             }
             
@@ -113,7 +120,7 @@ final class ObjectCaptureVM {
             reconstruction = nil
         }
         
-        let output = workspace.appending(path: "Object-\(UUID().uuidString).usdz")
+        let output = workspace.appending(path: "\(mode == .area ? "Area" : "Object")-\(UUID().uuidString).usdz")
         let configuration = PhotogrammetrySession.Configuration(checkpointDirectory: checkpoints)
         let processor = try PhotogrammetrySession(input: images, configuration: configuration)
         reconstruction = processor
