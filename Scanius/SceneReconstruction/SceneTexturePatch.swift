@@ -3,7 +3,7 @@ import RealityKit
 struct SceneTexturePatch: Sendable {
     var positions: [SIMD3<Float>] = []
     var textureCoordinates: [SIMD2<Float>] = []
-
+    
     @MainActor
     func entity(material: UnlitMaterial) throws -> ModelEntity {
         var descriptor = MeshDescriptor()

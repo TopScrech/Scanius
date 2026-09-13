@@ -20,7 +20,7 @@ extension SceneTextureFrame {
             let values = base.advanced(by: row * rowBytes).assumingMemoryBound(to: Float.self)
             return Array(UnsafeBufferPointer(start: values, count: width))
         }
-
+        
         // Keep sensor orientation so the image and camera intrinsics share coordinates
         let image = CIImage(cvPixelBuffer: frame.capturedImage)
         let scale = min(1, 1024 / image.extent.width)
@@ -28,5 +28,4 @@ extension SceneTextureFrame {
         guard let colorSpace = CGColorSpace(name: CGColorSpace.sRGB) else { return nil }
         try context.writeJPEGRepresentation(of: reduced, to: imageURL, colorSpace: colorSpace)
     }
-
 }
