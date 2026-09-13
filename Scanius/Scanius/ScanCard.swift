@@ -11,6 +11,11 @@ struct ScanCard: View {
     var body: some View {
         NavigationLink {
             QuickLookView(file)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        ShareLink(item: file)
+                    }
+                }
         } label: {
             VStack(alignment: .leading) {
                 Text(file.lastPathComponent)

@@ -7,7 +7,7 @@ final class RoomPlanController: RoomCaptureViewDelegate, RoomCaptureSessionDeleg
     var roomCaptureView: RoomCaptureView
     var showExportButton = false
     var showShareSheet = false
-    var exportUrl: URL?
+    var exportURL: URL?
     
     var sessionConfig: RoomCaptureSession.Configuration
     var finalResult: CapturedRoom?
@@ -24,7 +24,7 @@ final class RoomPlanController: RoomCaptureViewDelegate, RoomCaptureSessionDeleg
     }
     
     func stopSession() {
-        roomCaptureView.captureSession.stop(pauseARSession: false)
+        roomCaptureView.captureSession.stop(pauseARSession: true)
     }
     
     func captureView(shouldPresent roomDataForProcessing: CapturedRoomData, error: Error?) -> Bool {
@@ -42,16 +42,16 @@ final class RoomPlanController: RoomCaptureViewDelegate, RoomCaptureSessionDeleg
         }
         
         let filename = "\(UUID().uuidString).usdz"
-        exportUrl = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
+        exportURL = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
         
         do {
-            try finalResult.export(to: exportUrl!)
+            try finalResult.export(to: exportURL!)
         } catch {
             print("Error exporting usdz scan")
             return
         }
         
-        guard FileManager.default.fileExists(atPath: exportUrl!.path) else {
+        guard FileManager.default.fileExists(atPath: exportURL!.path) else {
             print("File doesn't exist at the export URL")
             return
         }
@@ -75,7 +75,7 @@ final class RoomPlanController: RoomCaptureViewDelegate, RoomCaptureSessionDeleg
         
         // Move the file to iCloud
         do {
-            try FileManager.default.setUbiquitous(true, itemAt: exportUrl!, destinationURL: iCloudDestinationURL)
+            try FileManager.default.setUbiquitous(true, itemAt: exportURL!, destinationURL: iCloudDestinationURL)
         } catch {
             print("Error moving file to iCloud: \(error)")
             return

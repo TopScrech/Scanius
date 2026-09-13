@@ -50,7 +50,7 @@ struct ScanningView: View {
             captureController.stopSession()
         }
         .sheet($binding.showShareSheet) {
-            ActivityViewControllerRep(items: [captureController.exportUrl!])
+            ActivityViewControllerRep(items: [captureController.exportURL!])
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
