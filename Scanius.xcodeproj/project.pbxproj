@@ -279,7 +279,7 @@
 				INFOPLIST_FILE = Scanius/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scanius;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSCameraUsageDescription = "RoomPlan API";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scan rooms and objects to create 3D models";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,7 +316,7 @@
 				INFOPLIST_FILE = Scanius/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scanius;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSCameraUsageDescription = "RoomPlan API";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scan rooms and objects to create 3D models";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -19,13 +19,22 @@ struct ScanList: View {
             }
             
             Section {
-                NavigationLink("New Scan") {
-                    ScanningView()
+                Menu("New Scan", systemImage: "plus") {
+                    NavigationLink("Room Plan", value: ScanType.roomPlan)
+                    NavigationLink("Object Capture", value: ScanType.objectCapture)
                 }
             }
         }
         .task {
             vm.fetchFiles()
+        }
+        .navigationDestination(for: ScanType.self) {
+            switch $0 {
+            case .roomPlan:
+                ScanningView()
+            case .objectCapture:
+                ObjectScanningView()
+            }
         }
     }
 }
