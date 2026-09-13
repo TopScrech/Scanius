@@ -3,6 +3,7 @@ import RealityKit
 
 struct ObjectScanningView: View {
     @Environment(\.scenePhase) private var scenePhase
+    
     @State private var vm: ObjectCaptureVM
 
     init(mode: ObjectCaptureMode = .object) {
