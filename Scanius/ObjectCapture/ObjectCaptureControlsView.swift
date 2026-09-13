@@ -18,8 +18,10 @@ struct ObjectCaptureControlsView: View {
                 case .ready:
                     if vm.mode == .area {
                         Text("Aim at the space you want to capture")
+                        
                         Text("Smaller areas preserve more detail")
                             .secondary()
+                        
                         Button("Start Area Capture", systemImage: "camera", action: vm.startCapturing)
                     } else {
                         Text("Center the object in the frame")
@@ -29,11 +31,12 @@ struct ObjectCaptureControlsView: View {
                 case .detecting:
                     Text("Adjust the box to fit your object, then start capturing")
                     Button("Start Capture", systemImage: "camera", action: vm.startCapturing)
-                
+                    
                 case .capturing:
                     Text(vm.mode == .area
                          ? "Move slowly across surfaces with overlapping views from different heights"
                          : "Move slowly around the object to capture every side")
+                    
                     Text("\(session.numberOfShotsTaken) photos captured")
                         .secondary()
                     
@@ -43,6 +46,7 @@ struct ObjectCaptureControlsView: View {
                     
                     Button("Create 3D Model", systemImage: "cube", action: vm.finish)
                         .disabled(session.numberOfShotsTaken == 0)
+                    
                 case .finishing, .completed:
                     ProgressView("Finishing Capture")
                     
