@@ -1,3 +1,3 @@
 enum ScanType: Hashable {
-    case roomPlan, objectCapture, areaCapture, sceneReconstruction
+    case roomPlan, objectCapture, areaCapture, sceneReconstruction, originalSceneReconstruction
 }

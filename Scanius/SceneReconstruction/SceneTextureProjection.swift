@@ -1,11 +1,15 @@
+import Foundation
 import simd
 
 struct SceneTextureProjection: Sendable {
     var patches: [Int: SceneTexturePatch] = [:]
+    var atlasURLs: [Int: URL] = [:]
+    var surfaceArea = 0.0
+    var texturedArea = 0.0
     var triangleCount = 0
     var texturedTriangleCount = 0
 
-    nonisolated static func build(meshes: [SceneMesh], frames: [SceneTextureFrame]) throws -> Self {
+    nonisolated static func build(meshes: [SceneMesh], frames: [SceneTextureFrame], includeTexturedPatches: Bool = true) throws -> Self {
         var result = Self()
         for mesh in meshes {
             for offset in stride(from: 0, to: mesh.indices.count, by: 3) {
@@ -28,8 +32,12 @@ struct SceneTextureProjection: Sendable {
                     bestScore = score
                     bestUVs = [uvA, uvB, uvC]
                 }
+                let area = Double(simd_length(cross)) / 2
+                result.surfaceArea += area
+                if bestIndex >= 0 { result.texturedArea += area }
                 result.triangleCount += 1
                 if bestIndex >= 0 { result.texturedTriangleCount += 1 }
+                guard bestIndex < 0 || includeTexturedPatches else { continue }
                 result.patches[bestIndex, default: SceneTexturePatch()].positions.append(contentsOf: [a, b, c])
                 result.patches[bestIndex, default: SceneTexturePatch()].textureCoordinates.append(
                     contentsOf: bestIndex >= 0 ? bestUVs : [.zero, .zero, .zero]

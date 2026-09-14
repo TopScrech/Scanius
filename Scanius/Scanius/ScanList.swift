@@ -23,7 +23,8 @@ struct ScanList: View {
                     NavigationLink("Room Plan", value: ScanType.roomPlan)
                     NavigationLink("Object Capture", value: ScanType.objectCapture)
                     NavigationLink("Area Capture", value: ScanType.areaCapture)
-                    NavigationLink("LiDAR Mesh", value: ScanType.sceneReconstruction)
+                    NavigationLink("LiDAR Mesh (Smoothed)", value: ScanType.sceneReconstruction)
+                    NavigationLink("LiDAR Mesh (Original)", value: ScanType.originalSceneReconstruction)
                 }
             }
         }
@@ -42,9 +43,9 @@ struct ScanList: View {
                 } else {
                     ContentUnavailableView("Area Capture Requires iOS 18", systemImage: "viewfinder")
                 }
-            case .sceneReconstruction:
+            case .sceneReconstruction, .originalSceneReconstruction:
                 if #available(iOS 18, *) {
-                    SceneScanningView()
+                    SceneScanningView(mode: $0 == .originalSceneReconstruction ? .original : .smoothed)
                 } else {
                     ContentUnavailableView("LiDAR Mesh Requires iOS 18", systemImage: "cube.transparent")
                 }

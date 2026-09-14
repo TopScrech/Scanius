@@ -8,7 +8,14 @@ import CoreImage
 @MainActor
 @Observable
 final class SceneReconstructionVM: NSObject, ARSessionDelegate {
+    let mode: SceneScanMode
     let session = ARSession()
+
+    init(mode: SceneScanMode = .smoothed) {
+        self.mode = mode
+        super.init()
+    }
+
     private(set) var meshCount = 0
     private(set) var isRunning = false
     private(set) var isSaving = false
@@ -84,7 +91,7 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
         errorMessage = nil
         session.pause()
         isRunning = false
-        let temporary = URL.temporaryDirectory.appending(path: "Mesh-\(UUID().uuidString).reality")
+        let temporary = URL.temporaryDirectory.appending(path: "\(mode.filePrefix)-\(UUID().uuidString).reality")
         defer {
             isSaving = false
             projectionTask = nil
@@ -95,11 +102,13 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
         do {
             let root = Entity()
             root.name = "LiDAR Scan"
-            saveMessage = "Matching Photos to Surfaces"
+            saveMessage = mode.processingMessage
             let meshes = anchors.map { SceneMesh(anchor: $0) }
             let frames = textureFrames
+            let directory = textureDirectory
+            let mode = mode
             let task = Task.detached(priority: .userInitiated) {
-                try SceneTextureProjection.build(meshes: meshes, frames: frames)
+                try mode.process(meshes: meshes, frames: frames, directory: directory)
             }
             projectionTask = task
             let projection = try await withTaskCancellationHandler {
@@ -111,17 +120,17 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
             guard projection.texturedTriangleCount > 0 else {
                 throw SceneTextureError.noCoverage
             }
-            textureCoverage = Double(projection.texturedTriangleCount) / Double(projection.triangleCount)
+            textureCoverage = projection.texturedArea / max(projection.surfaceArea, 1e-8)
             for (index, patch) in projection.patches.sorted(by: { $0.key < $1.key }) {
                 try Task.checkCancellation()
                 guard !stopped else { return }
                 saveMessage = "Applying Surface Photos"
                 var material = UnlitMaterial(applyPostProcessToneMap: false)
                 material.faceCulling = .none
-                if index >= 0 {
+                if let atlasURL = projection.atlasURLs[index] {
                     let texture = try await TextureResource(
-                        contentsOf: frames[index].imageURL,
-                        options: .init(semantic: .color)
+                        contentsOf: atlasURL,
+                        options: .init(semantic: .color, mipmapsMode: mode == .smoothed ? .none : .allocateAndGenerateAll)
                     )
                     material.color = .init(texture: .init(texture))
                 } else {
@@ -207,6 +216,9 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
 
     private func resume() {
         let configuration = ARWorldTrackingConfiguration()
+        if mode == .smoothed {
+            configuration.planeDetection = [.horizontal, .vertical]
+        }
         configuration.sceneReconstruction = .mesh
         configuration.frameSemantics.insert(.sceneDepth)
         session.run(configuration)

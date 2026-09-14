@@ -3,7 +3,11 @@ import SwiftUI
 @available(iOS 18, *)
 struct SceneScanningView: View {
     @Environment(\.scenePhase) private var scenePhase
-    @State private var vm = SceneReconstructionVM()
+    @State private var vm: SceneReconstructionVM
+
+    init(mode: SceneScanMode = .smoothed) {
+        _vm = State(initialValue: SceneReconstructionVM(mode: mode))
+    }
 
     var body: some View {
         Group {
@@ -17,7 +21,7 @@ struct SceneScanningView: View {
                 QuickLookView(url)
                     .safeAreaInset(edge: .bottom) {
                         if let coverage = vm.textureCoverage {
-                            Text("Photo coverage: \(coverage, format: .percent.precision(.fractionLength(0))) — gray surfaces need more camera views")
+                            Text("Surface photo coverage: \(coverage, format: .percent.precision(.fractionLength(0))) — gray surfaces need more camera views")
                                 .font(.footnote)
                                 .padding()
                                 .frame(maxWidth: .infinity)
@@ -37,7 +41,7 @@ struct SceneScanningView: View {
             }
         }
         .environment(vm)
-        .navigationTitle("LiDAR Mesh")
+        .navigationTitle(vm.mode.title)
         .navigationBarTitleDisplayMode(.inline)
         .task {
             await vm.run()
