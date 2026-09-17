@@ -25,6 +25,16 @@ struct ScanList: View {
                     NavigationLink("Area Capture", value: ScanType.areaCapture)
                     NavigationLink("LiDAR Mesh (Smoothed)", value: ScanType.sceneReconstruction)
                     NavigationLink("LiDAR Mesh (Original)", value: ScanType.originalSceneReconstruction)
+                    NavigationLink("LiDAR Mesh (Reconstructed)", value: ScanType.reconstructedSceneReconstruction)
+                }
+            }
+
+            if !vm.rawSessions.isEmpty {
+                Section("Raw Sessions on This Device") {
+                    ForEach(vm.rawSessions, id: \.self) {
+                        ShareLink($0.lastPathComponent, item: $0)
+                    }
+                    .onDelete(perform: vm.deleteRawSessions)
                 }
             }
         }
@@ -46,6 +56,12 @@ struct ScanList: View {
             case .sceneReconstruction, .originalSceneReconstruction:
                 if #available(iOS 18, *) {
                     SceneScanningView(mode: $0 == .originalSceneReconstruction ? .original : .smoothed)
+                } else {
+                    ContentUnavailableView("LiDAR Mesh Requires iOS 18", systemImage: "cube.transparent")
+                }
+            case .reconstructedSceneReconstruction:
+                if #available(iOS 18, *) {
+                    SceneScanningView(mode: .reconstructed)
                 } else {
                     ContentUnavailableView("LiDAR Mesh Requires iOS 18", systemImage: "cube.transparent")
                 }

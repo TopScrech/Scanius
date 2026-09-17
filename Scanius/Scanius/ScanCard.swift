@@ -15,6 +15,11 @@ struct ScanCard: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         ShareLink(item: file)
                     }
+                    if FileManager.default.fileExists(atPath: SceneRawSession.archiveURL(for: file).path) {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            ShareLink("Export Raw Session", item: SceneRawSession.archiveURL(for: file))
+                        }
+                    }
                 }
         } label: {
             VStack(alignment: .leading) {

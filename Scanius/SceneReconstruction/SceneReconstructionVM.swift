@@ -20,6 +20,7 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
     private(set) var isRunning = false
     private(set) var isSaving = false
     private(set) var resultURL: URL?
+    private(set) var rawSessionURL: URL?
     private(set) var errorMessage: String?
     private(set) var trackingMessage = "Move slowly to scan walls, floors, and furniture"
     private(set) var textureFrameCount = 0
@@ -27,6 +28,8 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
     private(set) var saveMessage = "Saving Scan"
     private var textureFrames: [SceneTextureFrame] = []
     private let textureDirectory = URL.temporaryDirectory.appending(path: UUID().uuidString)
+    private let retainedArchive = SceneRawSession.localDirectory
+        .appending(path: "Reconstructed-\(UUID().uuidString).zip")
     private let imageContext = CIContext(options: [.cacheIntermediates: false])
     private var projectionTask: Task<SceneTextureProjection, Error>?
     private var started = false
@@ -83,6 +86,10 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
         }
 
         if let frame = session.currentFrame { captureTexture(frame) }
+        if mode == .reconstructed, textureFrames.count < 3 {
+            errorMessage = SceneReconstructionError.insufficientDepth.localizedDescription
+            return
+        }
         guard !textureFrames.isEmpty else {
             errorMessage = "No surface photos captured yet — move slowly in good light and try again"
             return
@@ -107,8 +114,15 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
             let frames = textureFrames
             let directory = textureDirectory
             let mode = mode
+            let archive = mode == .reconstructed ? retainedArchive : nil
+            let progress: @Sendable (String) -> Void = { [weak self] message in
+                Task { @MainActor in
+                    guard let self, self.isSaving, !self.stopped else { return }
+                    self.saveMessage = message
+                }
+            }
             let task = Task.detached(priority: .userInitiated) {
-                try mode.process(meshes: meshes, frames: frames, directory: directory)
+                try mode.process(meshes: meshes, frames: frames, directory: directory, archiveURL: archive, progress: progress)
             }
             projectionTask = task
             let projection = try await withTaskCancellationHandler {
@@ -117,6 +131,7 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
                 task.cancel()
             }
             projectionTask = nil
+            rawSessionURL = projection.rawSessionURL
             guard projection.texturedTriangleCount > 0 else {
                 throw SceneTextureError.noCoverage
             }
@@ -130,7 +145,7 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
                 if let atlasURL = projection.atlasURLs[index] {
                     let texture = try await TextureResource(
                         contentsOf: atlasURL,
-                        options: .init(semantic: .color, mipmapsMode: mode == .smoothed ? .none : .allocateAndGenerateAll)
+                        options: .init(semantic: .color, mipmapsMode: mode == .original ? .allocateAndGenerateAll : .none)
                     )
                     material.color = .init(texture: .init(texture))
                 } else {
@@ -147,8 +162,22 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
             let destination = documents.appending(path: temporary.lastPathComponent)
             try FileManager.default.setUbiquitous(true, itemAt: temporary, destinationURL: destination)
             resultURL = destination
+            if let raw = rawSessionURL {
+                let rawDestination = SceneRawSession.archiveURL(for: destination)
+                do {
+                    try FileManager.default.createDirectory(at: rawDestination.deletingLastPathComponent(), withIntermediateDirectories: true)
+                    try FileManager.default.setUbiquitous(true, itemAt: raw, destinationURL: rawDestination)
+                    rawSessionURL = rawDestination
+                } catch {
+                    // The model is already saved and the raw archive remains available locally
+                    errorMessage = "Scan saved — raw session is stored on this device"
+                }
+            }
             clearTextures()
         } catch {
+            if mode == .reconstructed, FileManager.default.fileExists(atPath: retainedArchive.path) {
+                rawSessionURL = retainedArchive
+            }
             guard !stopped, !Task.isCancelled else { return }
             errorMessage = error.localizedDescription
             if isActive { resume() }
@@ -196,11 +225,21 @@ final class SceneReconstructionVM: NSObject, ARSessionDelegate {
             let moved = simd_distance(previous.columns.3, current.columns.3) > 0.15
             let turned = simd_dot(previous.columns.2, current.columns.2) < 0.985
             guard moved || turned else { return }
+            if mode == .reconstructed {
+                let elapsed = Float(frame.timestamp - last.timestamp)
+                if elapsed > 0, elapsed < 1.5 {
+                    let angle = simd_length(SceneRigidMath.rotationVector(SceneRigidMath.rotation(current)
+                        * SceneRigidMath.rotation(previous).inverse))
+                    let distance = simd_distance(previous.columns.3, current.columns.3)
+                    guard angle / elapsed < 0.8, distance / elapsed < 0.8 else { return }
+                }
+            }
         }
         do {
             try FileManager.default.createDirectory(at: textureDirectory, withIntermediateDirectories: true)
             let url = textureDirectory.appending(path: "Photo-\(textureFrames.count).jpg")
-            if let sample = try SceneTextureFrame(frame: frame, imageURL: url, context: imageContext) {
+            if let sample = try SceneTextureFrame(frame: frame, imageURL: url, context: imageContext,
+                                                  reconstructed: mode == .reconstructed) {
                 textureFrames.append(sample)
                 textureFrameCount = textureFrames.count
             }

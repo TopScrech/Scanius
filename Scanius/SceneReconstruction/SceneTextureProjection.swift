@@ -4,6 +4,7 @@ import simd
 struct SceneTextureProjection: Sendable {
     var patches: [Int: SceneTexturePatch] = [:]
     var atlasURLs: [Int: URL] = [:]
+    var rawSessionURL: URL?
     var surfaceArea = 0.0
     var texturedArea = 0.0
     var triangleCount = 0

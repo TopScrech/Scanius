@@ -7,7 +7,8 @@ mkdir -p "$test_workspace/Sources/SceneTexturing" "$test_workspace/Tests/SceneTe
 for source in SceneMesh SceneTextureFrame SceneTexturePatch SceneTextureProjection SceneMeshSmoothing ScenePhotoPixels ScenePhotoWeights SceneExposureCorrection SceneTextureBaker SceneTextureTile SceneAtlasLayout SceneTextureError SceneScanMode; do
     cp "$project_root/Scanius/SceneReconstruction/$source.swift" "$test_workspace/Sources/SceneTexturing/"
 done
-cp "$project_root/Tests/SceneTexturingTests.swift" "$test_workspace/Tests/SceneTexturingTests/"
+cp "$project_root"/Scanius/SceneReconstruction/Reconstructed/*.swift "$test_workspace/Sources/SceneTexturing/"
+cp "$project_root"/Tests/*Tests.swift "$test_workspace/Tests/SceneTexturingTests/"
 cat > "$test_workspace/Package.swift" <<'PACKAGE'
 // swift-tools-version: 6.0
 import PackageDescription

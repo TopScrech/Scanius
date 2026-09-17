@@ -32,6 +32,11 @@ struct SceneScanningView: View {
                         ToolbarItem(placement: .topBarTrailing) {
                             ShareLink(item: url)
                         }
+                        if let raw = vm.rawSessionURL {
+                            ToolbarItem(placement: .topBarTrailing) {
+                                ShareLink("Export Raw Session", item: raw)
+                            }
+                        }
                     }
             } else {
                 SceneCameraView()

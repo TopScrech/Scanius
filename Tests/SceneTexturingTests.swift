@@ -196,3 +196,36 @@ private func workspace() throws -> URL {
     #expect(patch.positions == mesh.positions)
     #expect(result.atlasURLs[0] == sample.imageURL)
 }
+
+@Test func reconstructedModeBuildsItsOwnGeometryAndPreservesRawInputs() throws {
+    let directory = try workspace()
+    defer { try? FileManager.default.removeItem(at: directory) }
+    let url = directory.appending(path: "source.jpg")
+    try photo(url: url) { _, _ in [130, 160, 180] }
+    var sample = frame(url: url)
+    sample.confidences = Array(repeating: 2, count: sample.depths.count)
+    let unrelated = SceneMesh(positions: [SIMD3(99, 99, 99), SIMD3(100, 99, 99), SIMD3(99, 100, 99)], indices: [0, 1, 2])
+    let result = try SceneScanMode.reconstructed.process(meshes: [unrelated], frames: [sample, sample, sample], directory: directory)
+    #expect(result.triangleCount > 1)
+    #expect(result.texturedTriangleCount > 0)
+    #expect(result.patches.values.flatMap(\.positions).allSatisfy { abs($0.z + 2) < 0.01 })
+    #expect(FileManager.default.fileExists(atPath: try #require(result.rawSessionURL).path))
+    let reportURL = directory.appending(path: "Raw Session/reconstruction.json")
+    let report = try JSONDecoder().decode(SceneReconstructionReport.self, from: Data(contentsOf: reportURL))
+    #expect(report.correctedFrames.count == 3)
+    #expect(report.voxelSizeMeters == 0.03)
+}
+
+@Test func keepsRawArchiveWhenReconstructionCannotFindReliableSurfaces() throws {
+    let directory = try workspace()
+    defer { try? FileManager.default.removeItem(at: directory) }
+    let url = directory.appending(path: "source.jpg")
+    try photo(url: url) { _, _ in [130, 160, 180] }
+    var sample = frame(url: url)
+    sample.confidences = Array(repeating: 0, count: sample.depths.count)
+    let archive = directory.appending(path: "Retained.zip")
+    #expect(throws: SceneReconstructionError.self) {
+        try SceneScanMode.reconstructed.process(meshes: [], frames: [sample, sample, sample], directory: directory, archiveURL: archive)
+    }
+    #expect(FileManager.default.fileExists(atPath: archive.path))
+}

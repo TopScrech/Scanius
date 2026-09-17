@@ -5,8 +5,8 @@ import UniformTypeIdentifiers
 import simd
 
 struct SceneTextureBaker {
-    nonisolated static func bake(meshes: [SceneMesh], frames: [SceneTextureFrame], directory: URL) throws -> SceneTextureProjection {
-        let mesh = try SceneMeshSmoothing.prepare(meshes)
+    nonisolated static func bake(meshes: [SceneMesh], frames: [SceneTextureFrame], directory: URL, smooth: Bool = true) throws -> SceneTextureProjection {
+        let mesh = try SceneMeshSmoothing.prepare(meshes, iterations: smooth ? 2 : 0)
         let weights = try ScenePhotoWeights.build(mesh: mesh, frames: frames)
         let photos = try frames.map { try ScenePhotoPixels(url: $0.imageURL) }
         let gains = try SceneExposureCorrection.gains(mesh: mesh, frames: frames, photos: photos, weights: weights)

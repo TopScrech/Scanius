@@ -15,9 +15,19 @@ struct SceneCaptureControlsView: View {
                 .footnote()
                 .secondary()
 
+            if vm.mode == .reconstructed {
+                Text("View each surface from several nearby positions — reconstruction happens after saving")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+
             if let error = vm.errorMessage {
                 Text(error)
                     .foregroundStyle(.red)
+            }
+
+            if let raw = vm.rawSessionURL, !vm.isSaving {
+                ShareLink("Export Raw Session", item: raw)
             }
 
             if vm.canResume {
@@ -31,7 +41,7 @@ struct SceneCaptureControlsView: View {
                     Task { await vm.save() }
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(vm.meshCount == 0 || !vm.isRunning)
+                .disabled(vm.meshCount == 0 || !vm.isRunning || (vm.mode == .reconstructed && vm.textureFrameCount < 3))
             }
         }
         .padding()
